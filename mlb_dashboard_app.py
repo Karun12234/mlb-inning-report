@@ -246,7 +246,9 @@ selected_metric_name = st.sidebar.selectbox(
 auto_refresh_data = st.sidebar.checkbox("Automatically refresh data on load (may take time)", value=False)
 
 # --- Main Content Area ---
+from datetime import date
 
+today = date.today()
 st.header(f"Analysis for Inning {inning_number} on {report_date_str}")
 
 # Trigger data pull if checkbox is enabled or if "Generate Report" button is clicked
@@ -254,12 +256,18 @@ if auto_refresh_data or st.button("Generate Report"):
     st.info(f"Fetching and processing data for Inning {inning_number} on {report_date_str}. This may take a few minutes...")
 
     with st.spinner("Running data pipeline..."):
-        run_full_data_pipeline(report_date_str, inning_number)
-    
+        if report_date_str = today
+            run_full_data_pipeline(report_date_str, inning_number)
+        else
+            run_full_data_pipeline('today', inning_number)
     with st.spinner("Generating report and recommendations..."):
         (report_df, strikeout_recs, runs_recs, strikeout_parlays, runs_parlays,
          other_metrics_recs, other_metrics_parlays, pdf_buffers) = \
-            generate_report_data_and_pdfs(report_date_str, inning_number)
+            if report_date_str = today
+                generate_report_data_and_pdfs('today', inning_number)
+            else
+                generate_report_data_and_pdfs(report_date_str, inning_number)
+            
 
     if report_df.empty:
         st.warning("No data available to generate the report for the selected date and inning. Please try a different date or check the console for errors.")

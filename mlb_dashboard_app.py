@@ -258,14 +258,14 @@ if auto_refresh_data or st.button("Generate Report"):
     with st.spinner("Running data pipeline..."):
         if report_date_str == tdy:
             run_full_data_pipeline('today', inning_number)
-        else
+        else:
             run_full_data_pipeline(report_date_str, inning_number)
     with st.spinner("Generating report and recommendations..."):
         (report_df, strikeout_recs, runs_recs, strikeout_parlays, runs_parlays,
          other_metrics_recs, other_metrics_parlays, pdf_buffers) = \
             if report_date_str == tdy:
                 generate_report_data_and_pdfs('today', inning_number)
-            else
+            else:
                 generate_report_data_and_pdfs(report_date_str, inning_number)
             
 

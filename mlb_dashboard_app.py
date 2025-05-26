@@ -249,8 +249,8 @@ auto_refresh_data = st.sidebar.checkbox("Automatically refresh data on load (may
 from datetime import date
 
 tdy = date.today()
-if report_date_str == tdy:
-    report_date_str - 'today'
+#if report_date_str == tdy:
+    #report_date_str - 'today'
 st.header(f"Analysis for Inning {inning_number} on {report_date_str}")
 
 # Trigger data pull if checkbox is enabled or if "Generate Report" button is clicked

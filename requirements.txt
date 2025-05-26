@@ -5,3 +5,4 @@ reportlab
 matplotlib
 datetime
 pybaseball
+mlb-statsapi
